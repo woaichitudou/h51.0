@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/mobilReset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <style>
+        .animetion {
+            width: 100%;
+            height: 100%;
+            background: url("./images/action-bg.jpg")no-repeat;
+            background-size: 100% 100%;
+            background-position: 0 0;
+            overflow: hidden;
+            position: relative;
+            display: none;
+        }
+        
+        .action {
+            width: 1400%;
+            height: 100%;
+            display: block;
+            position: absolute;
+            left: -1300%;
+            top: 0;
+        }
+        
+        .left,
+        .right {
+            width: 60px;
+            height: 60px;
+            position: absolute;
+            z-index: 2;
+            border-radius: 50%;
+        }
+        
+        .left {
+            left: 5%;
+            top: 5%;
+        }
+        
+        .right {
+            left: 5%;
+            bottom: 5%;
+        }
+        
+        .act {
+            background: #fff!important;
+        }
+        
+        .pages-Tow {
+            width: 100%;
+            height: 100%;
+            background: url("./images/neonLlights-bg.jpg")no-repeat;
+            background-size: 100% 100%;
+            background-position: 0 0;
+            overflow: hidden;
+            position: relative;
+            display: none;
+        }
+        
+        .neonLlights {
+            width: 600%;
+            height: 100%;
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .pages-guodu {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+            display: none;
+        }
+        
+        .guodu-img {
+            width: 7000%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: block;
+        }
+        
+        .pages-one {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+            /* display: none; */
+        }
+        
+        .cigarette {
+            width: 1900%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+            z-index: 1;
+        }
+        
+        .ray {
+            width: 1200%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+            z-index: 1;
+        }
+        
+        .yu {
+            width: 700%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: block;
+            z-index: 2;
+        }
+        
+        .one-bg {
+            width: 100%;
+            height: 100%;
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .BootUpAnimetion {
+            animation: myfirst 5s;
+            -moz-animation: myfirst 5s;
+            /* Firefox */
+            -webkit-animation: myfirst 5s;
+            /* Safari and Chrome */
+            -o-animation: myfirst 5s;
+            /* Opera */
+        }
+        
+        @keyframes myfirst {
+            0% {
+                width: 100%;
+                height: 100%;
+                margin-left: 0;
+                margin-top: 0;
+            }
+            100% {
+                width: 200%;
+                height: 200%;
+                margin-left: -50%;
+                margin-top: -70%;
+            }
+        }
+        
+        @-moz-keyframes myfirst
+        /* Firefox */
+        
+        {
+            0% {
+                width: 100%;
+                height: 100%;
+                margin-top: 0;
+                margin-left: 0%;
+            }
+            100% {
+                width: 200%;
+                height: 200%;
+                margin-top: -70%;
+                margin-left: -50%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="loding">
+        <div class="loader">
+            <div class="loader-inner pacman">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="pages-one">
+        <img src="./images/cigarette.jpg" alt="" class="cigarette" id="cigarette">
+        <img src="./images/ray.jpg" alt="" class="ray" id="ray">
+        <img src="./images/yu.png" alt="" class="yu" id="yu">
+        <img src="./images/12.jpg" alt="" class="one-bg">
+    </div>
+    <div class="pages-Tow">
+        <img src="./images/neonLlights.png" alt="" class="neonLlights" id="neonLlights">
+    </div>
+    <div class="pages-guodu">
+        <img src="./images/guodu.jpg" alt="" class="guodu-img" id="guodu">
+    </div>
+    <div class="animetion">
+        <img src="./images/action.png" alt="" class="action" id="dom">
+        <img src="./images/left.png" alt="" class="left">
+        <img src="./images/right.png" alt="" class="right">
+    </div>
+</body>
+<script>
+    var width = $(window).width();
+    var height = $(window).height();
+
+    /*左手撕扯轨迹*/
+    var locusLeft = [{
+        "x": -13 * width,
+        "y": "0"
+    }, {
+        "x": -12 * width,
+        "y": "0"
+    }, {
+        "x": -11 * width,
+        "y": "0"
+    }, {
+        "x": -10 * width,
+        "y": "0"
+    }, {
+        "x": -9 * width,
+        "y": "0"
+    }, {
+        "x": -8 * width,
+        "y": "0"
+    }, {
+        "x": -7 * width,
+        "y": "0"
+    }]
+
+
+    /*右手撕扯轨迹*/
+    var locusRight = [{
+        "x": -6 * width,
+        "y": "0"
+    }, {
+        "x": -5 * width,
+        "y": "0"
+    }, {
+        "x": -4 * width,
+        "y": "0"
+    }, {
+        "x": -3 * width,
+        "y": "0"
+    }, {
+        "x": -2 * width,
+        "y": "0"
+    }, {
+        "x": -1 * width,
+        "y": "0"
+    }, {
+        "x": "0",
+        "y": "0"
+    }]
+
+    /*闪光灯轨迹*/
+    var neonLlightsData = [{
+        "x": 0 * width,
+        "y": "0"
+    }, {
+        "x": -1 * width,
+        "y": "0"
+    }, {
+        "x": -2 * width,
+        "y": "0"
+    }, {
+        "x": -3 * width,
+        "y": "0"
+    }, {
+        "x": -4 * width,
+        "y": "0"
+    }, {
+        "x": -5 * width,
+        "y": "0"
+    }, {
+        "x": -4 * width,
+        "y": "0"
+    }, {
+        "x": -3 * width,
+        "y": "0"
+    }, {
+        "x": -2 * width,
+        "y": "0"
+    }, {
+        "x": -1 * width,
+        "y": "0"
+    }]
+
+    /*拖动轨迹*/
+    var guoduData = [{
+        "x": 0 * width,
+        "y": "0"
+    }, {
+        "x": -1 * width,
+        "y": "0"
+    }, {
+        "x": -2 * width,
+        "y": "0"
+    }, {
+        "x": -3 * width,
+        "y": "0"
+    }, {
+        "x": -4 * width,
+        "y": "0"
+    }, {
+        "x": -5 * width,
+        "y": "0"
+    }, {
+        "x": -6 * width,
+        "y": "0"
+    }, {
+        "x": -7 * width,
+        "y": "0"
+    }, {
+        "x": -8 * width,
+        "y": "0"
+    }, {
+        "x": -9 * width,
+        "y": "0"
+    }, {
+        "x": -10 * width,
+        "y": "0"
+    }, {
+        "x": -11 * width,
+        "y": "0"
+    }, {
+        "x": -12 * width,
+        "y": "0"
+    }, {
+        "x": -13 * width,
+        "y": "0"
+    }, {
+        "x": -14 * width,
+        "y": "0"
+    }, {
+        "x": -15 * width,
+        "y": "0"
+    }, {
+        "x": -16 * width,
+        "y": "0"
+    }, {
+        "x": -17 * width,
+        "y": "0"
+    }, {
+        "x": -18 * width,
+        "y": "0"
+    }, {
+        "x": -19 * width,
+        "y": "0"
+    }, {
+        "x": -20 * width,
+        "y": "0"
+    }, {
+        "x": -21 * width,
+        "y": "0"
+    }, {
+        "x": -22 * width,
+        "y": "0"
+    }, {
+        "x": -23 * width,
+        "y": "0"
+    }, {
+        "x": -24 * width,
+        "y": "0"
+    }, {
+        "x": -25 * width,
+        "y": "0"
+    }, {
+        "x": -26 * width,
+        "y": "0"
+    }, {
+        "x": -27 * width,
+        "y": "0"
+    }, {
+        "x": -28 * width,
+        "y": "0"
+    }, {
+        "x": -29 * width,
+        "y": "0"
+    }, {
+        "x": -30 * width,
+        "y": "0"
+    }, {
+        "x": -31 * width,
+        "y": "0"
+    }, {
+        "x": -32 * width,
+        "y": "0"
+    }, {
+        "x": -33 * width,
+        "y": "0"
+    }, {
+        "x": -34 * width,
+        "y": "0"
+    }, {
+        "x": -35 * width,
+        "y": "0"
+    }, {
+        "x": -36 * width,
+        "y": "0"
+    }, {
+        "x": -37 * width,
+        "y": "0"
+    }, {
+        "x": -38 * width,
+        "y": "0"
+    }, {
+        "x": -39 * width,
+        "y": "0"
+    }, {
+        "x": -40 * width,
+        "y": "0"
+    }, {
+        "x": -41 * width,
+        "y": "0"
+    }, {
+        "x": -42 * width,
+        "y": "0"
+    }, {
+        "x": -43 * width,
+        "y": "0"
+    }, {
+        "x": -44 * width,
+        "y": "0"
+    }, {
+        "x": -45 * width,
+        "y": "0"
+    }, {
+        "x": -46 * width,
+        "y": "0"
+    }, {
+        "x": -47 * width,
+        "y": "0"
+    }, {
+        "x": -48 * width,
+        "y": "0"
+    }, {
+        "x": -49 * width,
+        "y": "0"
+    }, {
+        "x": -50 * width,
+        "y": "0"
+    }, {
+        "x": -51 * width,
+        "y": "0"
+    }, {
+        "x": -52 * width,
+        "y": "0"
+    }, {
+        "x": -53 * width,
+        "y": "0"
+    }, {
+        "x": -54 * width,
+        "y": "0"
+    }, {
+        "x": -55 * width,
+        "y": "0"
+    }, {
+        "x": -56 * width,
+        "y": "0"
+    }, {
+        "x": -57 * width,
+        "y": "0"
+    }, {
+        "x": -58 * width,
+        "y": "0"
+    }, {
+        "x": -59 * width,
+        "y": "0"
+    }, {
+        "x": -60 * width,
+        "y": "0"
+    }, {
+        "x": -61 * width,
+        "y": "0"
+    }, {
+        "x": -62 * width,
+        "y": "0"
+    }, {
+        "x": -63 * width,
+        "y": "0"
+    }, {
+        "x": -64 * width,
+        "y": "0"
+    }, {
+        "x": -65 * width,
+        "y": "0"
+    }, {
+        "x": -66 * width,
+        "y": "0"
+    }, {
+        "x": -67 * width,
+        "y": "0"
+    }, {
+        "x": -68 * width,
+        "y": "0"
+    }, {
+        "x": -69 * width,
+        "y": "0"
+    }]
+
+    /*吸烟轨迹*/
+    var cigaretteData = [{
+        "x": 0 * width,
+        "y": "0"
+    }, {
+        "x": -1 * width,
+        "y": "0"
+    }, {
+        "x": -2 * width,
+        "y": "0"
+    }, {
+        "x": -3 * width,
+        "y": "0"
+    }, {
+        "x": -4 * width,
+        "y": "0"
+    }, {
+        "x": -5 * width,
+        "y": "0"
+    }, {
+        "x": -6 * width,
+        "y": "0"
+    }, {
+        "x": -7 * width,
+        "y": "0"
+    }, {
+        "x": -8 * width,
+        "y": "0"
+    }, {
+        "x": -9 * width,
+        "y": "0"
+    }, {
+        "x": -10 * width,
+        "y": "0"
+    }, {
+        "x": -11 * width,
+        "y": "0"
+    }, {
+        "x": -12 * width,
+        "y": "0"
+    }, {
+        "x": -13 * width,
+        "y": "0"
+    }, {
+        "x": -14 * width,
+        "y": "0"
+    }, {
+        "x": -15 * width,
+        "y": "0"
+    }, {
+        "x": -16 * width,
+        "y": "0"
+    }, {
+        "x": -17 * width,
+        "y": "0"
+    }, {
+        "x": -18 * width,
+        "y": "0"
+    }]
+
+
+
+    /*雷轨迹*/
+    var rayData = [{
+        "x": 0 * width,
+        "y": "0"
+    }, {
+        "x": -1 * width,
+        "y": "0"
+    }, {
+        "x": -2 * width,
+        "y": "0"
+    }, {
+        "x": -3 * width,
+        "y": "0"
+    }, {
+        "x": -4 * width,
+        "y": "0"
+    }, {
+        "x": -5 * width,
+        "y": "0"
+    }, {
+        "x": -6 * width,
+        "y": "0"
+    }, {
+        "x": -7 * width,
+        "y": "0"
+    }, {
+        "x": -8 * width,
+        "y": "0"
+    }, {
+        "x": -9 * width,
+        "y": "0"
+    }, {
+        "x": -10 * width,
+        "y": "0"
+    }, {
+        "x": -11 * width,
+        "y": "0"
+    }]
+
+
+
+
+
+    /*
+     *  action 动画函数
+     *  需要传入的参数
+     *  1 运动的对象
+     *  2 运动的时间,每帧
+     *  3 运动的轨迹 
+     *  4 是否循环 false true
+     *
+     */
+
+    var i = 0;
+    var action = (dom, time, locus, cycle, remove) => {
+        var actionSet = setInterval(() => {
+            if (cycle == false) {
+                if (i == locus.length) {
+                    i = 0;
+                    clearInterval(actionSet)
+                } else {
+                    dom.style.left = locus[i].x + "px";
+                    dom.style.top = locus[i].y + "px";
+                    i++;
+                }
+            } else {
+                if (i == locus.length) {
+                    i = 0;
+                    actionSet
+                } else {
+                    dom.style.left = locus[i].x + "px";
+                    dom.style.top = locus[i].y + "px";
+                    i++;
+                }
+            }
+        }, time)
+        return actionSet
+    }
+
+
+    var u = 0;
+    var actionc = (dom, time, locus) => {
+        var actionSet = setInterval(() => {
+            if (u == locus.length) {
+                clearInterval(actionSet)
+            } else {
+                dom.style.left = locus[u].x + "px";
+                dom.style.top = locus[u].y + "px";
+                u++;
+            }
+        }, time)
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    var dom = document.getElementById("dom")
+    var neonLlights = document.getElementById("neonLlights")
+    var guodu = document.getElementById("guodu")
+    var cigarette = document.getElementById("cigarette")
+    var ray = document.getElementById("ray")
+
+
+    /*霓虹灯效果*/
+    // action(neonLlights, 50, neonLlightsData, true)
+
+    /*拖动效果*/
+    // action(guodu, 80, guoduData, false)
+
+    /*烟动画*/
+    // action(cigarette, 200, cigaretteData, false)
+
+    // action(ray, 100, rayData, true)
+
+    // action(yu, 200, rayData, true)
+
+
+
+
+
+    /*左手*/
+    $(".left").click(() => {
+        $(".left").addClass("act")
+        setTimeout(() => {
+            $(".left").removeClass("act")
+        }, 50)
+        action(dom, 50, locusLeft, false)
+    })
+
+
+    /*右手*/
+    $(".right").click(() => {
+        $(".right").addClass("act")
+        setTimeout(() => {
+            $(".right").removeClass("act")
+        }, 50)
+        action(dom, 50, locusRight, false)
+    })
+
+
+
+
+
+
+
+
+
+    window.onload = (() => {
+        /*加载动画消失*/
+        $(".loding").fadeOut(2000)
+
+        /*第一屏出现*/
+        $(".pages-one").fadeIn(2000)
+
+        /*第一屏背景出现*/
+        $("#ray").fadeIn(2000)
+        setTimeout(() => {
+            let q1 = action(ray, 300, rayData, true, true)
+            setTimeout(() => {
+                clearInterval(q1)
+                $("#ray").fadeOut(10)
+                $("#cigarette").fadeIn(10)
+                actionc(cigarette, 200, cigaretteData)
+                setTimeout(() => {
+                    $("#cigarette").fadeOut(10)
+                    $(".one-bg").fadeIn(10)
+                    setTimeout(() => {
+                        $(".one-bg").addClass("BootUpAnimetion")
+                    }, 50)
+                }, 3500)
+            }, 5000);
+        }, 200)
+    })
+</script>
+
+</html>
